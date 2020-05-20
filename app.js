@@ -4,6 +4,7 @@ const port = 5000;
 const app = express();
 
 let items = ['Eat','Code','Rpeat'];
+let workItems = [];
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -20,16 +21,22 @@ app.get('/', function(req, res) {
         year: 'numeric'
     };
     var day = today.toLocaleDateString("en-US", options);
-    res.render('list', {tempDay : day, newItem: items});
+    res.render('list', {listTitle : day, newItem: items});
 });
 
 app.post('/', function(req, res) {
     let item = req.body.newItem;
-    if(item === ""){
-        console.log('enter item');
-    }
-    items.push(item);
-    res.redirect('/');
+    if(req.body.list === 'Work') {
+        workItems.push(item);
+        res.redirect('/work');
+    }else{
+        items.push(item);
+        res.redirect('/');
+    }    
+});
+
+app.get('/work', function(req, res) {
+    res.render('list', {listTitle: "Work List", newItem : workItems});
 });
 
 app.listen(port, function() {
