@@ -6,7 +6,6 @@ html {
 }
 
 h1 {
-    color: #fff;
     padding: 10px;
 }
 
@@ -21,6 +20,11 @@ h1 {
 #heading {
     background-color: #A683E3;
     text-align: center;
+    color: #fff;
+}
+
+#work_heading {
+     text-align: center;
 }
 
 .item {
@@ -58,7 +62,7 @@ form {
     margin-left: 20px;
 }
 
-button {
+button.add-items {
     min-height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -68,6 +72,42 @@ button {
     font-size: 30px;
     /* padding-bottom: 6px; */
     border-width: 0;
+    transition-duration: 0.4s;
+}
+.box-button{
+    display: flex;
+    justify-content: center;
+}
+
+button.btn{
+    margin: 0 5px;
+    min-height: 50px;
+    width: 100px;
+    border: none;
+    border-color: transparent;
+    border-radius: 5px;
+    background-color: #fff;
+    color: black;
+    font-size: 12px;
+    transition-duration: 0.4s;
+    padding: 0 8px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover{
+    background-color: #555555;
+    color: white;
+    font-weight: bold;
+}
+
+
+.add-items:hover {
+    background-color: #555555;
+    color: #fff;
 }
 
 input[type="text"] {
